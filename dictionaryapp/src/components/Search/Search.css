@@ -1,3 +1,4 @@
+/* Container to center the form */
 div {
     display: flex;
     flex-direction: column;
@@ -75,6 +76,6 @@ div {
   
     button {
       font-size: 0.8rem;
-      padding: 6px 12px;
-    }
-  }
+      padding: 6px 12px;
+    }
+  }

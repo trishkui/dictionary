@@ -4,12 +4,12 @@ const useNewWord = create((set) => ({
   word: "",
 
   setWord: (wordNew) => {
-    if (!wordNew.trim()) return; // avoid setting an empty string
+    if (!wordNew.trim()) return;
 
-    set(() => ({
+    set((state) => ({
       word: wordNew,
     }));
   },
 }));
 
-export default useNewWord;
+export default useNewWord;

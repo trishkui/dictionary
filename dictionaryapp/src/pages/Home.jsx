@@ -1,7 +1,6 @@
 import React from "react";
 import Results from "../components/Results/Results";
 import Search from "../components/Search/Search";
-
 function Home() {
   return (
     <div>
@@ -11,4 +10,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home;

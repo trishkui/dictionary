@@ -9,22 +9,19 @@ function Results() {
     queryKey: ["word", word],
     queryFn: async () => {
       const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`
+        https://api.dictionaryapi.dev/api/v2/entries/en_US/${word},
       );
-      if (!response.ok) {
-        throw new Error("Failed to fetch the word data");
-      }
       const result = await response.json();
       return result;
     },
-    enabled: !!word, // only run the query when word is not empty
+    enabled: !!word,
   });
 
   return (
     <div>
       {isLoading && <div>Loading...</div>}
-      {isError && <div>Error: {error.message}</div>}
-      {data && Array.isArray(data) && data.length > 0 ? (
+      {isError && <div>{error.message}</div>}
+      {data && data.length > 0 ? (
         <div>
           <h2>{data[0].word}</h2>
           <div>
@@ -34,7 +31,7 @@ function Results() {
                 {meaning.definitions.map((definition, defIndex) => (
                   <div key={defIndex}>
                     <p>{definition.definition}</p>
-                    {definition.example && <p>Example: {definition.example}</p>}
+                    {definition.example && <p>{definition.example}</p>}
                   </div>
                 ))}
               </div>
@@ -42,10 +39,10 @@ function Results() {
           </div>
         </div>
       ) : (
-        !isLoading && <div style={{ color: "orange" }}>No results found</div>
+        <div style={{ color: "orange" }}>No results found</div>
       )}
     </div>
   );
 }
 
-export default Results;
+export default Results;
